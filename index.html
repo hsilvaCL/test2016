@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#submit").click(function(){
+var form2=$("#form1").serialize();
+$.ajax({
+type: "POST",
+url: "data.php",
+data: form2,
+success: function(html)
+{
+$("#load").html(html);
+}
+});
+return false;
+});
+});
+</script>
+</head>
+<body>
+<form method="post" action="" id="form1">
+Username: <input type="text" name="name" id="name" /><br />
+Age:<input type="password" name="age" id="age"/><br />
+<input type="submit" name="submit" id="submit" /><br />
+<div id="load"></div>
+</form>
+</body>
+</html>
